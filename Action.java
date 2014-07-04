@@ -1,3 +1,3 @@
-public interface Action<T> { 
-	public void apply(T _T);
+public interface Action<T> {
+    public void apply(T _T);
 }

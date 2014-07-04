@@ -4,31 +4,31 @@
  * from it in another class.
  */
 public abstract class BasePerson implements Person {
-	private static int requireValidAge(final int age) {
-    if (age < 0 || age > 150)
-      throw new IllegalArgumentException();
-    return age;
-  }
+    private int age;
 
-	private int age;
+    protected BasePerson(int age) {
+        this.age = requireValidAge(age);
+    }
 
-	protected BasePerson(int age) {
-		this.age = requireValidAge(age);
-	}
+    private static int requireValidAge(final int age) {
+        if (age < 0 || age > 150)
+            throw new IllegalArgumentException();
+        return age;
+    }
 
-	@Override
-	public void setAge(int age) {
-		this.age = requireValidAge(age);
-	}
+    @Override
+    public int getAge() {
+        return this.age;
+    }
 
-	@Override
-	public int getAge() {
-		return this.age;
-	}
+    @Override
+    public void setAge(int age) {
+        this.age = requireValidAge(age);
+    }
 
-	@Override
-	public abstract String getSurname();
+    @Override
+    public abstract String getSurname();
 
-	@Override
-	public abstract String getGivenName();
+    @Override
+    public abstract String getGivenName();
 }
